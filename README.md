@@ -69,7 +69,7 @@
 
 <summary> 프로젝트 일정 </summary>
 
-![img.png](../images/Project1/project1plan.png)
+![img.png](src/main/resources/static/images/Project1/project1plan.png)
 
 </details>
 
@@ -77,7 +77,7 @@
 
 <summary> ER 다이어그램 </summary>
 
-![img.png](../images/Project1/project1ERD.png)
+![img.png](src/main/resources/static/images/Project1/project1ERD.png)
 
 </details>
 

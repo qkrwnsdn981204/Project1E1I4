@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>로그인</title>
+    <link rel="stylesheet" th:href="@{/css/member/memberLogin.css}">
+</head>
+<body>
+<div th:replace="~{/fragments/common/header :: headerFragment}"></div>
+<div class="container">
+    <div class="login">
+        <div class="joinLogin-con">
+            <h1 class="joinBtn"><a th:href="@{/member/memberJoin}">회 원 가 입</a></h1>
+            <h1 class="loginBtn"><a th:href="@{/member/memberLogin}">로 그 인</a></h1>
+        </div>
+        <h2>※ 계정이 없으면 <a th:href="@{/member/memberJoin}">회원가입</a> 해주세요.</h2>
+        <div class="login-con">
+            <form th:action="@{/member/memberLogin}" method="post">
+                <ul>
+                    <li>
+                        <label for="userEmail">이 메 일</label>
+                    </li>
+                    <li>
+                        <input type="email" id="userEmail" name="userEmail" placeholder="이 메 일" autofocus> <br>
+                    </li>
+
+                    <li>
+                        <label for="userPw">비 밀 번 호</label>
+                    </li>
+                    <li>
+                        <input type="password" id="userPw" name="userPw" autoComplete="off" placeholder="비 밀 번 호"> <br>
+                    </li>
+
+                    <li>
+                        <th:block th:if="error">
+                            <p style="color: #ff0000; font-size: 12px;" th:text="${exception}"></p>
+                        </th:block>
+                    </li>
+                    <li class="li2">
+                        <input type="submit" value="로 그 인">
+                    </li>
+                    <li class="sns">
+                        <a th:href="@{/oauth2/authorization/google}"><img th:src="@{/images/google.png}" alt="google"></a>
+                        <a th:href="@{/oauth2/authorization/kakao}"><img th:src="@{/images/kakao.png}" alt="kakao"></a>
+                        <a th:href="@{/oauth2/authorization/naver}"><img th:src="@{/images/naver.png}" alt="naver"></a>
+                    </li>
+                </ul>
+            </form>
+        </div>
+    </div>
+</div>
+<div th:replace="~{/fragments/common/footer :: footerFragment}"></div>
+</body>
+</html>

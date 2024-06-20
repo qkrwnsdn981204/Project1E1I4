@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5"
+      xmlns:c="http://www.w3.org/1999/XSL/Transform">
+<head>
+    <meta charset="UTF-8">
+    <title>reviewBoardUpdate</title>
+    <link rel="stylesheet" th:href="@{/css/board/boardWrite.css}">
+</head>
+<body>
+
+<div th:replace="~{/fragments/common/header :: headerFragment }"></div>
+
+<div class="container">
+    <div class="boardWrite">
+        <div class="boardWrite-con">
+            <div class="boardWrite-form">
+                <form th:action="@{/board/reviewBoardUpdate}" method="post" enctype="multipart/form-data">
+                    <ul>
+                        <li>
+                            <h1>수강 후기글 수정</h1>
+                        </li>
+
+                        <li>
+                            <label for="category">분류</label>
+                        </li>
+
+                        <li>
+                            <label for="category">분류</label>
+                        </li>
+                        <li>
+                            <select name="category" id="category" th:value="${board.category}">
+                                <option value="4" th:selected="${board.category}=='4' ">미술</option>
+                                <option value="5" th:selected="${board.category}=='5' ">체육</option>
+                                <option value="6" th:selected="${board.category}=='6' ">음악</option>
+                                <option value="7" th:selected="${board.category}=='7' ">요리</option>
+                            </select>
+                        </li>
+
+                        <li>
+                            <label for="id">글번호</label>
+                            <input type="text" name="id" id="id" th:value="${board.id}" readonly>
+                        </li>
+
+                        <li>
+                            <input type="hidden" name="memberId" id="memberId" th:value="${memberId}" readonly>
+                        </li>
+
+                        <li>
+                            <label for="boardWriter">작성자</label>
+                        </li>
+                        <li>
+                            <input type="text" name="boardWriter" id="boardWriter" th:value="${board.boardWriter}"
+                                   readonly>
+                        </li>
+
+                        <li>
+                            <label for="boardTitle">제목</label>
+                        </li>
+                        <li>
+                            <input type="text" name="boardTitle" id="boardTitle" th:value="${board.boardTitle}">
+                        </li>
+
+                        <li>
+                            <label for="boardContent">내용</label>
+                        </li>
+                        <li>
+                            <textarea name="boardContent" id="boardContent"
+                                      cols="30" rows="10" th:text="${board.boardContent}"></textarea>
+                        </li>
+
+
+
+                        <li class="file">
+                            <label for="boardFile">파일</label>
+                            <input type="file" name="boardFile" id="boardFile">
+                        </li>
+
+                        <li>
+                            <input type="submit" value="수정">
+                            <a th:href="@{/board/reviewBoardList}">목록</a>
+                            <a th:href="@{/board/noticeBoardDelete/{id}(id=${board.id})}">삭제</a>
+                        </li>
+
+
+                    </ul>
+
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div th:replace="~{/fragments/common/footer :: footerFragment }"></div>
+</body>
+</html>
+
+

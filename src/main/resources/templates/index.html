@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+
+    <meta charset="UTF-8">
+    <title>index</title>
+    <script th:src="@{/js/index.js}" defer></script>
+    <script th:src="@{/js/AutoGallery.js}" defer></script>
+    <link rel="stylesheet" th:href="@{/css/index.css}">
+</head>
+<body>
+<div th:replace="~{/fragments/common/header :: headerFragment}"></div>
+
+<div class="container">
+    <div class="index">
+        <div class="index-con">
+            <div class="sections">
+                <div class="section sec1">
+                    <div class="con">
+
+                    </div>
+                </div>
+                <h2>환 영 합 니 다.</h2>
+                <div class="section sec2">
+                    <div class="con">
+
+                        <div class="left-con">
+                            <h1>이달의 랭킹</h1>
+                            <div  class="like" th:each="like :${liked}">
+                                <ul>
+                                    <li><a th:href="@{/shop/shopDetail/{id}(id=${like.id})}"><span th:text="${like.shopTitle}"></span></a></li>
+                                    <li><span th:text="${#temporals.format(like.createTime,'yy-MM-dd')}"></span></li>
+                                    <!--<li>♥<span th:text="${like.liked}"></span></li>-->
+                                    <li class="heart">♥<span class="heart" th:text="${like.liked}"></span></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="right-con">
+                            <div class="autoGallery">
+                                <ul>
+                                    <li class="fadeIn"></li>
+                                    <li></li>
+                                    <li></li>
+                                    <li></li>
+                                    <li></li>
+                                </ul>
+                            </div>
+                            <!--  <div class="center-arrow">
+                                  <span class="arrow arrowLeft"></span>
+                                  <span class="arrow arrowRight"></span>
+                              </div>-->
+                            <div class="items">
+                                <ul>
+                                    <li class="liOn"></li>
+                                    <li></li>
+                                    <li></li>
+                                    <li></li>
+                                    <li></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!--<div class="right-con">right</div>-->
+                    </div>
+                </div>
+                <div class="section sec3">
+
+                    <div class="con">
+                        <div class="title">
+                            <span class="left"><img th:src="@{/images/right.svg}" alt=""></span>
+
+                            <span class="right"><img th:src="@{/images/free-icon-list-button-61438.png}" alt=""></span>
+                        </div>
+
+                        <div class="bottom-con">
+                            <div class="left-con">
+                                <div class="con1 span-on">
+                                    <div class="sub-con"><img th:src="@{/images/index/index_art.jpg}" alt="img" width="200px" height="150px"></div>
+                                    <div class="sub-con"><img th:src="@{/images/index/index_cafe.png}" alt="img" width="200px" height="150px"></div>
+                                    <div class="sub-con"><img th:src="@{/images/index/index_cook.png}" alt="img" width="200px" height="150px"></div>
+                                    <div class="sub-con"><img th:src="@{/images/index/index_guitar.png}" alt="img" width="200px" height="150px"></div>
+                                    <div class="sub-con"><img th:src="@{/images/index/index_making.png}" alt="img" width="200px" height="150px"></div>
+                                    <div class="sub-con"><img th:src="@{/images/index/index_piano.png}" alt="img" width="200px" height="150px"></div>
+                                    <div class="sub-con"><img th:src="@{/images/index/index_surfing.jpg}" alt="img" width="200px" height="150px"></div>
+                                    <div class="sub-con"><img th:src="@{/images/index/index_tabletennis.jpg}" alt="img" width="200px" height="150px"></div>
+                                </div>
+
+                                <div class="con2 span-off">
+                                    <table>
+                                        <thead>
+                                        <tr>
+                                            <th>분류</th>
+                                            <th>제목</th>
+<!--                                            <th>내용</th>-->
+                                            <th>작성자</th>
+                                            <th>조회수</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <h1>수 강 후 기 Top 6!!
+                                            <label><a th:href="@{/board/reviewBoardList}">+더보기</a></label>
+                                        </h1>
+                                        <tr th:each="review:${boardDtoList}" class="list">
+                                            <td th:if="${review.category eq 4}" th:text="미술"></td>
+                                            <td th:if="${review.category eq 5}" th:text="체육"></td>
+                                            <td th:if="${review.category eq 6}" th:text="음악"></td>
+                                            <td th:if="${review.category eq 7}" th:text="요리"></td>
+                                            <td  class="btitle">
+                                                <a th:href="@{/board/reviewBoardDetail/{id}(id=${review.id})}">
+                                                    <label th:text="${review.boardTitle}"></label></a>
+                                            </td>
+                                            <td th:text="${review.boardWriter}"></td>
+                                            <td th:text="${review.boardHit}"></td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+                <div class="section sec4">
+                    <div class="bottom">
+                        <div class="bottom-wrapper-list-products">
+                            <div class="bottom-wrapper-list-products-items">
+                                <!-- 원본 항목 템플릿 -->
+                                <div class="item"><a th:href="@{/shop/shopList4}"><img th:src="@{/images/cook.jpeg}"
+                                                                          alt="item"></a></div>
+                                <div class="item"><a th:href="@{shop/shopList3}"><img th:src="@{/images/guitar.jpeg}"
+                                                                          alt="item"></a></div>
+                                <div class="item"><a th:href="@{/shop/shopList1}"><img th:src="@{/images/palette.jpeg}"
+                                                                          alt="item"></a></div>
+                                <div class="item"><a th:href="@{/shop/shopList2}"><img th:src="@{/images/tennis.jpeg}"
+                                                                          alt="item"></a></div>
+                                <div class="item"><a th:href="@{/shop/shopList3}"><img th:src="@{/images/drum.jpeg}"
+                                                                          alt="item"></a></div>
+                            </div>
+                            <!-- 항목을 복제하기 위한 JavaScript -->
+                            <script>
+                                // 아이템 요소를 복제하여 추가합니다.
+                                const itemsContainer = document.querySelector('.bottom-wrapper-list-products-items');
+                                const itemTemplates = itemsContainer.querySelectorAll('.item');
+                                for (let j = 0; j < 1000; j++) { // 각 항목을 다섯 번씩 반복
+                                    itemTemplates.forEach(itemTemplate => {
+                                        const newItem = itemTemplate.cloneNode(true);
+                                        itemsContainer.appendChild(newItem);
+                                    });
+                                }
+                            </script>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div th:replace="~{/fragments/common/footer :: footerFragment}"></div>
+</body>
+</html>

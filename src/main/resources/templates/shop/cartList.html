@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="UTF-8">
+  <title>CartList</title>
+  <link rel="stylesheet" th:href="@{/css/shop/cartList.css}">
+</head>
+
+<body>
+<div th:replace="~{/fragments/common/header :: headerFragment}"></div>
+<div class="container">
+  <div class="cartList">
+    <div class="cartList-con">
+      <h1>CartList</h1>
+      <table>
+        <thead>
+        <tr>
+          <th>이미지</th>
+          <th>수업명</th>
+          <th>금액</th>
+          <th>선생님</th>
+          <th>정원</th>
+          <th>수량</th>
+          <th>총금액</th>
+          <th:block sec:authorize="isAuthenticated()">
+            <th>삭제</th>
+          </th:block>
+          <th:block sec:authorize="isAnonymous()">
+
+          </th:block>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="cart : ${cartShopListDto}">
+          <td>
+            <!-- 첨부된 파일이 있다면 -->
+            <img th:if="${not #lists.isEmpty(cart.shopEntity.shopFileEntityList)}"
+                 th:src="@{'/upload/' + ${cart.shopEntity.shopFileEntityList[0]?.shopNewFileName}}"
+                 alt="Attached Image">
+            <img th:if="${#lists.isEmpty(cart.shopEntity.shopFileEntityList)}"
+                 src="https://placehold.co/400x400?text=NOIMAGE"
+                 alt="이미지 없음">
+          </td>
+          <td th:text="${cart.shopEntity.shopTitle}"></td>
+          <td th:text="${cart.shopEntity.shopPrice}"></td>
+          <td th:text="${cart.shopEntity.shopSeller}"></td>
+          <td th:text="${cart.shopEntity.peopleCount}"></td>
+          <td th:text="${cart.count}"></td>
+          <td th:text="${cart.count * cart.shopEntity.shopPrice}"></td>
+          <td><a th:href="@{/shop/cartShopDelete/{id}(id=${cart.id})}" class="a" onclick="delete1(event)">삭제 </a></td>
+        </tr>
+        </tbody>
+      </table>
+      <form th:action="@{/shop/cartShopAllDelete}" method="get" onsubmit="return confirm('정말로 모든 카트 샵 리스트를 삭제하시겠습니까?')">
+        <input type="hidden" name="userId" th:value="${userId}">
+        <button type="submit">장바구니 비우기</button>
+      </form>
+    </div>
+  </div>
+</div>
+<div th:replace="~{/fragments/common/footer :: footerFragment}"></div>
+</body>
+
+</html>

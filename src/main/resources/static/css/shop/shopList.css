@@ -1,0 +1,161 @@
+
+@import url(/css/common/reset.css);
+@import url(/css/common/footer.css);
+@import url(/css/common/header.css);
+@import url(/css/common/paging.css);
+@import url(/css/common/sideBar.css);
+
+
+/* 검색 css */
+
+
+.container {
+ width: 100%;
+     height: auto;
+     display: flex;
+     justify-content: center;
+}
+.container .shopList {
+  width: 1600px;
+  display: flex;
+/* justify-content: center;*/
+
+}
+
+.container .shopList .shopList-con{
+  width: 100%;
+
+/* justify-content: center;*/
+ line-height: 2;
+ padding-top : 50px;
+ padding-left: 20px;
+}
+
+.container .shopList .shopList-con .writeButton{
+    margin: 10px;
+    margin-right: 0;
+    float: right;
+}
+
+.container .shopList .shopList-con h1 img{
+    width: 30px;
+    height: 30px;
+}
+
+.container .shopList .shopList-con button.delete{
+  background: #000000;
+  padding: 5px;
+  color: white;
+  border: 1px solid #ffffff;
+}
+
+.container .shopList h1{
+  background-color: rgb(250 184 119);
+  color: aliceblue;
+  text-align: center;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.container .shopList .search{
+  background-color: #ffffff;
+  padding: 10px;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: end;
+}
+
+/* 그리드 레이아웃 */
+.grid-parent {
+    width: 100%;
+}
+
+.grid-parent .grid-con {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 5px;
+}
+
+/* 각 그리드 아이템 */
+.grid-parent ul.grid-con li {
+   /* display: flex;
+    flex-direction: column;*/
+    overflow: hidden; /* 내용이 넘칠 경우를 대비하여 추가 */
+    line-height:35px;
+}
+
+
+
+.bottom li:nth-child(1) {
+display: flex;
+justify-content: space-between;
+}
+
+.like {
+color:red;
+
+}
+.category{
+    border: 2px solid #fa922b;
+    background-color: #ffd2a6;
+    border-radius: 8px;
+    width: 40px;
+    text-align: center;
+
+}
+
+.bottom li:nth-child(2) {
+    justify-content: flex-start;
+    display: flex;
+    gap: 5px;
+    font-weight:bold;
+
+}
+.bottom li:nth-child(2) img{
+padding-top:2px;
+}
+.bottom li:nth-child(4) {
+display: flex;
+justify-content: space-between;
+}
+
+
+
+/* 이미지 부분 */
+.grid-parent ul.grid-con li .top {
+    position: relative; /* .top 안에 절대 위치 요소가 있을 경우를 대비하여 추가 */
+    flex: 1; /* .top 영역이 유연하게 조정되도록 */
+}
+
+.grid-parent ul.grid-con li .top img {
+    width: 335px;
+    height: 240px;
+    object-fit: cover; /* 이미지를 영역에 맞게 자동으로 조정 */
+}
+
+/* 설명 부분 */
+.grid-parent ul.grid-con li .bottom {
+    padding: 10px;
+    background-color: #f9f9f9; /* 배경색 추가 */
+    border-top: 1px solid #ccc; /* 상단에 선 추가 */
+    box-sizing: border-box; /* 패딩, 보더를 포함한 너비 지정 */
+}
+
+/* 좋아요 버튼의 기본 스타일 */
+#likeButton {
+  background-color: transparent; /* 배경색 투명하게 설정 */
+  border: none; /* 테두리 없애기 */
+  font-size: 24px; /* 아이콘 크기 조정 */
+  cursor: pointer; /* 커서를 포인터로 변경하여 클릭 가능한 상태 표시 */
+  transition: color 0.3s; /* 색상 변경에 애니메이션 효과 추가 */
+}
+
+#likeButton.liked {
+  color: red; /* 좋아요 상태일 때 아이콘 색상 변경 */
+}
+
+
+
+
+
+

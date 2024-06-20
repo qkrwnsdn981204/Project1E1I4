@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>boardWrite</title>
+        <link rel="stylesheet" th:href="@{/css/board/boardWrite.css}">
+</head>
+<body>
+
+<div th:replace="~{/fragments/common/header :: headerFragment }"></div>
+
+<div class="container">
+    <div class="boardWrite">
+        <div class="boardWrite-con">
+            <div class="boardWrite-form">
+                <form th:action="@{/board/reviewBoardWrite}" method="POST"   enctype="multipart/form-data"    >
+                    <ul>
+                        <li>
+                            <h1>수강 후기글 작성</h1>
+                        </li>
+
+                        <li>
+                            <label for="category">분류</label>
+                        </li>
+                        <li>
+                            <select name="category" id="category">
+                                <option value="4">미술</option>
+                                <option value="5">체육</option>
+                                <option value="6">음악</option>
+                                <option value="7">요리</option>
+                            </select>
+
+                        </li>
+
+                        <li>
+                            <input type="hidden" name="memberId" id="memberId" th:value="${memberId}" readonly hidden="hidden">
+
+                        </li>
+
+                        <li>
+                            <input type="hidden" id="boardWriter" name="boardWriter" th:value="${memberName}" hidden="hidden">
+                        </li>
+                        <!--회원이름으로 불러오기  1. 글작성할때 boardWriter를 memberName으로 불러와서 쓸지
+                                            2. 여기에서 바로 memberName 으로 받아올지-->
+
+                        <li>
+                            <label>작성자</label>
+                        </li>
+                        <li>
+                            <span th:text="${memberName}" readonly></span>
+                        </li>
+
+                        <li>
+                            <label for="boardTitle">제목</label>
+                        </li>
+                        <li>
+                            <input type="text" id="boardTitle" name="boardTitle" placeholder="제목을 입력하세요">
+                        </li>
+
+                        <li>
+                            <label for="boardContent">내용 </label>
+                        </li>
+                        <li>
+                            <textarea name="boardContent" id="boardContent" cols="30" rows="10"  placeholder="내용을 입력하세요"></textarea>
+                        </li>
+
+                        <li class="file">
+                            <label for="boardFile">파일</label>
+                            <input type="file" name="boardFile" id="boardFile">
+                        </li>
+
+                        <li>
+                            <input type="reset" value="초기화">
+                            <input type="submit" value="작성">
+                        </li>
+
+
+                    </ul>
+
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div th:replace="~{/fragments/common/footer :: footerFragment }"></div>
+</body>
+</html>

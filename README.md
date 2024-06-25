@@ -53,13 +53,13 @@
 
 | 카테고리       | 요소                                                                                                                  |
 |------------|---------------------------------------------------------------------------------------------------------------------|
-| 프로그래밍 언어   | JAVA                                                                                                                |
-| 개발 툴       | IntelliJ                                                                                                            |
-| 프레임워크      | Spring Boot 2.7.11                                                                                                  |
+| 프로그래밍 언어   | <img src="https://img.shields.io/badge/intellijidea-000000?style=for-the-badge&logo=intellijidea&logoColor=white">  |
+| 개발 툴       | <img src="https://img.shields.io/badge/java-007396?style=for-the-badge&logo=OpenJDK&logoColor=white">               |
+| 프레임워크      | <img src="https://img.shields.io/badge/springboot-6DB33F?style=for-the-badge&logo=springboot&logoColor=white">      |
 | 라이브러리 및 DI | Spring WEB(MVC), Thymeleaf, Spring Data JPA, Lombok, SpringSecurity5 <br/>, websocket, validation, OAuth2, security |
-| 데이터베이스     | MySql8                                                                                                              |
+| 데이터베이스     | <img src="https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=MySQL&logoColor=white">                |
 | ORM        | Spring Data JPA (JAVA(SQL))                                                                                         |
-| 템플릿 엔진     | Thymeleaf (HTML + Data)                                                                                             |
+| 템플릿 엔진     | <img src="https://img.shields.io/badge/Thymeleaf-005F0F?style=for-the-badge&logo=Thymeleaf&logoColor=white">        |
 | Frontend   | css, javaScript, html, ajax                                                                                         |
 | 설정         | application.yml, application-oauth2.yml                                                                             |
 

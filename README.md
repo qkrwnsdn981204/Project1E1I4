@@ -53,8 +53,8 @@
 
 | 카테고리       | 요소                                                                                                                 |
 |------------|--------------------------------------------------------------------------------------------------------------------|
-| 프로그래밍 언어   | <img src="https://img.shields.io/badge/intellijidea-000000?style=for-the-badge&logo=intellijidea&logoColor=white"> |
-| 개발 툴       | <img src="https://img.shields.io/badge/java-007396?style=for-the-badge&logo=OpenJDK&logoColor=white">              |
+| 프로그래밍 언어   | <img src="https://img.shields.io/badge/java-007396?style=for-the-badge&logo=OpenJDK&logoColor=white">              |
+| 개발 툴       | <img src="https://img.shields.io/badge/intellijidea-000000?style=for-the-badge&logo=intellijidea&logoColor=white"> |
 | 프레임워크      | <img src="https://img.shields.io/badge/springboot-6DB33F?style=for-the-badge&logo=springboot&logoColor=white">     |
 | 라이브러리 및 DI | Spring WEB(MVC), Lombok, SpringSecurity5 <br/>, websocket, validation, OAuth2                                      |
 | 데이터베이스     | <img src="https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=MySQL&logoColor=white">               |
